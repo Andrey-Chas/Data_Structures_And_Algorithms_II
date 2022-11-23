@@ -6,18 +6,45 @@ namespace BinaryTree
 {
     public class Node
     {
+        public Node Root;
         public Node LeftData;
         public Node RightData;
         public int Number;
 
-        public Node(int number)
-        {
-            Number = number;
-        }
-
         public void Add(int value)
         {
+            Node newNode = new Node();
+            newNode.Number = value;
 
+            if (Root != null)
+            {
+                if (newNode.Number > Root.Number)
+                {
+                    if (Root.RightData == null)
+                    {
+                        Root.RightData = newNode;
+                    }
+                    else
+                    {
+                        Root.RightData.Add(value);
+                    }
+                }
+                else if (newNode.Number < Root.Number)
+                {
+                    if (Root.LeftData == null)
+                    {
+                        Root.LeftData = newNode;
+                    }
+                    else
+                    {
+                        Root.LeftData.Add(value);
+                    }
+                }
+            }
+            else
+            {
+                Root = newNode;
+            }
         }
 
         public Node FindNumber(int value, Node parent)
