@@ -11,39 +11,54 @@ namespace BinaryTree
         public Node RightData;
         public int Number;
 
-        public void Add(int value)
+        public Node(int number)
         {
-            Node newNode = new Node();
-            newNode.Number = value;
+            Number = number;
+        }
 
-            if (Root != null)
+        //public void Add(int value)
+        //{
+        //    Node newNode = new Node();
+        //    newNode.Number = value;
+
+        //    if (Root != null)
+        //    {
+        //        if (newNode.Number > Root.Number)
+        //        {
+        //            if (Root.RightData == null)
+        //            {
+        //                Root.RightData = newNode;
+        //            }
+        //            else
+        //            {
+        //                Root.RightData.Add(value);
+        //            }
+        //        }
+        //        else if (newNode.Number < Root.Number)
+        //        {
+        //            if (Root.LeftData == null)
+        //            {
+        //                Root.LeftData = newNode;
+        //            }
+        //            else
+        //            {
+        //                Root.LeftData.Add(value);
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Root = newNode;
+        //    }
+        //}
+
+        public void Sort(Node root)
+        {
+            if (root != null)
             {
-                if (newNode.Number > Root.Number)
-                {
-                    if (Root.RightData == null)
-                    {
-                        Root.RightData = newNode;
-                    }
-                    else
-                    {
-                        Root.RightData.Add(value);
-                    }
-                }
-                else if (newNode.Number < Root.Number)
-                {
-                    if (Root.LeftData == null)
-                    {
-                        Root.LeftData = newNode;
-                    }
-                    else
-                    {
-                        Root.LeftData.Add(value);
-                    }
-                }
-            }
-            else
-            {
-                Root = newNode;
+                Sort(root.LeftData);
+                Console.Write(root.Number + " ");
+                Sort(root.RightData);
             }
         }
 
