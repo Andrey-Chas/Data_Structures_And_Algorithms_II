@@ -8,12 +8,14 @@ namespace Graphs
     {
         public String Node1;
         public String Node2;
+        public int Cost;
 
 
-        public Link(String node1, String node2)
+        public Link(String node1, String node2, int cost)
         {
             Node1 = node1;
             Node2 = node2;
+            Cost = cost;
         }
 
         public String GetOther(String node)
@@ -28,5 +30,6 @@ namespace Graphs
             }
             return null;
         }
+
     }
 }
